@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: taskflow
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: taskflow
+data:
+  NODE_ENV: "production"
+  CORS_ORIGIN: "http://taskflow-frontend"
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  namespace: taskflow
+data:
+  REACT_APP_API_URL: "http://backend-service:5000"
